@@ -3,6 +3,7 @@
     const handlebars = require('express-handlebars')
     const bodyParser = require("body-parser")
     const app = express()
+    const admin = require("./routes/admin")
     // const mongoose = require("mongoose")
 
 // Configurações
@@ -14,11 +15,11 @@
     }));
 
     // Handlebars
-     app.engine('handlebars', handlebars({defaultLayout: 'main'}))
+     app.engine('handlebars', handlebars.engine({defaultLayout: 'main'}))
      app.set('view engine', 'handlebars');   
 
 // Rotas
-
+    app.use('/admin', admin)
 
 // Outros
 
